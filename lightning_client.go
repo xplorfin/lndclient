@@ -285,9 +285,6 @@ type Transaction struct {
 
 	// Confirmations is the number of confirmations the transaction has.
 	Confirmations int32
-
-	// Label is an optional label set for on chain transactions.
-	Label string
 }
 
 var (
@@ -738,7 +735,6 @@ func (s *lightningClient) ListTransactions(ctx context.Context) ([]Transaction, 
 			Amount:        btcutil.Amount(respTx.Amount),
 			Fee:           btcutil.Amount(respTx.TotalFees),
 			Confirmations: respTx.NumConfirmations,
-			Label:         respTx.Label,
 		}
 	}
 
